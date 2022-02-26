@@ -59,5 +59,5 @@ uintptr_t _start[] = {
     (uintptr_t) Music_setVolumeHook,
 };
 #else
-bool Hacktice_gEnabled = false;
+bool Hacktice_gEnabled = true;
 #endif

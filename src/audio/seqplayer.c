@@ -7,6 +7,8 @@
 #include "load.h"
 #include "seqplayer.h"
 
+#include "hacktice/music.h"
+
 #define PORTAMENTO_IS_SPECIAL(x) ((x).mode & 0x80)
 #define PORTAMENTO_MODE(x) ((x).mode & ~0x80)
 #define PORTAMENTO_MODE_1 1
@@ -982,7 +984,7 @@ void set_instrument(struct SequenceChannel *seqChannel, u8 instId) {
 }
 
 void sequence_channel_set_volume(struct SequenceChannel *seqChannel, u8 volume) {
-    seqChannel->volume = FLOAT_CAST(volume) / US_FLOAT(127.0);
+    Music_setVolumeHook(seqChannel, volume);
 }
 
 #ifdef NON_MATCHING

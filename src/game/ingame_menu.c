@@ -23,6 +23,8 @@
 #include "text_strings.h"
 #include "types.h"
 
+#include "hacktice/main.h"
+
 u16 gDialogColorFadeTimer;
 s8 gLastDialogLineNum;
 s32 gDialogVariable;
@@ -2220,6 +2222,8 @@ void render_pause_my_score_coins(void) {
     courseIndex = gCurrCourseNum - 1;
     starFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, gCurrCourseNum - 1);
 
+    if (!Hacktice_gEnabled)
+    {
 #ifdef VERSION_EU
     switch (gInGameLanguage) {
         case LANGUAGE_ENGLISH:
@@ -2293,6 +2297,13 @@ void render_pause_my_score_coins(void) {
     print_generic_string(117, 157, &courseName[3]);
 #endif
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+    }
+    else
+    {
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+        Hacktice_onPause();
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+    }
 }
 
 #if defined(VERSION_JP) || defined(VERSION_SH)
@@ -2561,6 +2572,9 @@ void render_pause_castle_main_strings(s16 x, s16 y) {
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
     gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
+
+    if (Hacktice_gEnabled)
+        Hacktice_onPause();
 
     if (gDialogLineNum < COURSE_STAGES_COUNT) {
         courseName = segmented_to_virtual(courseNameTbl[gDialogLineNum]);

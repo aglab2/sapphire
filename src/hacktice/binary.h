@@ -24,7 +24,8 @@ s16 get_str_x_pos_from_center(s16 centerPos, const u8 *str);
 #define PLAY_SEQUENCE play_sequence
 void play_sequence(u8 player, u8 seqId, u16 fadeTimer);
 #else
-#define PLAY_SEQUENCE seq_player_play_sequence
+// #define PLAY_SEQUENCE seq_player_play_sequence
+#define PLAY_SEQUENCE play_sequence
 void seq_player_play_sequence(u8 player, u8 seqId, u16 arg2);
 #endif
 
@@ -61,5 +62,6 @@ extern struct InteractionHandler sInteractionHandlers[];
 #ifdef BINARY
 static void* sCourseNames = (void*) 0x02010f68;
 #else
+extern u8 seg2_course_name_table[];
 const static void* sCourseNames = (void*) seg2_course_name_table;
 #endif

@@ -51,6 +51,8 @@
 
 #define WARP_NODE_CREDITS_MIN 0xF8
 
+#include "hacktice/main.h"
+
 #ifdef VERSION_JP
 const char *credits01[] = { "1GAME DIRECTOR", "SHIGERU MIYAMOTO" };
 const char *credits02[] = { "2ASSISTANT DIRECTORS", "YOSHIAKI KOIZUMI", "TAKASHI TEZUKA" };
@@ -191,7 +193,7 @@ u16 level_control_timer(s32 timerOp) {
 
         case TIMER_CONTROL_HIDE:
             gHudDisplay.flags &= ~HUD_DISPLAY_FLAG_TIMER;
-            sTimerRunning = FALSE;
+            sTimerRunning = Hacktice_gEnabled;
             gHudDisplay.timer = 0;
             break;
     }
@@ -450,7 +452,9 @@ void init_mario_after_warp(void) {
 void warp_area(void) {
     if (sWarpDest.type != WARP_TYPE_NOT_WARPING) {
         if (sWarpDest.type == WARP_TYPE_CHANGE_AREA) {
-            level_control_timer(TIMER_CONTROL_HIDE);
+            if (!Hacktice_gEnabled)
+                level_control_timer(TIMER_CONTROL_HIDE);
+
             unload_mario_area();
             load_area(sWarpDest.areaIdx);
         }

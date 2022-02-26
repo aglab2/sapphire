@@ -558,8 +558,9 @@ SECTIONS
    BEGIN_NOLOAD(main)
    {
       BUILD_DIR/src/game/crash_screen.o(.bss*);
-      BUILD_DIR/src/game/main.o(.bss*);
       BUILD_DIR/src/game/game_init.o(.bss*);
+      _hackticeStateDataStart = .;
+      BUILD_DIR/src/game/main.o(.bss*);
       BUILD_DIR/src/game/sound_init.o(.bss*);
       BUILD_DIR/src/game/level_update.o(.bss*);
       BUILD_DIR/src/game/interaction.o(.bss*);
@@ -596,6 +597,7 @@ SECTIONS
 #ifndef VERSION_EU
       BUILD_DIR/src/game*.o(.bss*);
 #endif
+      _hackticeStateDataEnd = .;
       BUILD_DIR/src/audio/external.o(.bss*);
       BUILD_DIR/src/audio/port_eu.o(.bss*);
 
@@ -661,6 +663,7 @@ SECTIONS
       BUILD_DIR/src/game/object_helpers.o(.text);
 #endif
       BUILD_DIR/src/engine*.o(.text);
+      BUILD_DIR/src/hacktice*.o(.text*);
       /* data */
       BUILD_DIR/src/engine/graph_node.o(.data*);
       BUILD_DIR/src/engine/graph_node_manager.o(.data*);
@@ -674,6 +677,7 @@ SECTIONS
       BUILD_DIR/src/game/object_helpers.o(.data*);
 #endif
       BUILD_DIR/src/engine*.o(.data*);
+      BUILD_DIR/src/hacktice*.o(.data*);
       /* rodata */
       BUILD_DIR/src/engine/math_util.o(.rodata*);
       BUILD_DIR/src/engine/level_script.o(.rodata*);
@@ -685,6 +689,7 @@ SECTIONS
       BUILD_DIR/src/game/object_helpers.o(.rodata*);
 #endif
       BUILD_DIR/src/engine*.o(.rodata*);
+      BUILD_DIR/src/hacktice*.o(.rodata*);
    }
    END_SEG(engine)
    BEGIN_NOLOAD(engine)
@@ -701,6 +706,7 @@ SECTIONS
       BUILD_DIR/src/game/object_helpers.o(.bss*);
 #endif
       BUILD_DIR/src/engine*.o(.bss*);
+      BUILD_DIR/src/hacktice*.o(.*bss*);
    }
    END_NOLOAD(engine)
 

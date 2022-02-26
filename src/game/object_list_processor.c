@@ -20,6 +20,7 @@
 #include "profiler.h"
 #include "spawn_object.h"
 
+#include "hacktice/main.h"
 
 /**
  * Flags controlling what debug info is displayed.
@@ -407,6 +408,9 @@ s32 unload_deactivated_objects_in_list(struct ObjectNode *objList) {
  * SpawnInfo.
  */
 void set_object_respawn_info_bits(struct Object *obj, u8 bits) {
+    if (Hacktice_gEnabled)
+        return;
+
     u32 *info32;
     u16 *info16;
 

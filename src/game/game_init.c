@@ -21,6 +21,8 @@
 #include "thread6.h"
 #include <prevent_bss_reordering.h>
 
+#include "hacktice/main.h"
+
 // FIXME: I'm not sure all of these variables belong in this file, but I don't
 // know of a good way to split them
 struct Controller gControllers[3];
@@ -675,6 +677,10 @@ void thread5_game_loop(UNUSED void *arg) {
         audio_game_loop_tick();
         config_gfx_pool();
         read_controller_inputs();
+        if (Hacktice_gEnabled)
+        {
+            Hacktice_onFrame();
+        }
         addr = level_script_execute(addr);
         display_and_vsync();
 
