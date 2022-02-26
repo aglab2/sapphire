@@ -1,0 +1,30 @@
+extern const GeoLayout bits_area_1_geo[];
+extern const GeoLayout bits_area_1[];
+extern const Collision bits_area_1_collision[];
+extern const MacroObject bits_area_1_macro_objs[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_001_mesh_vtx_0[199];
+extern Gfx bits_dl_Shape_IndexedFaceSet_001_mesh_tri_0[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_002_mesh_vtx_0[382];
+extern Gfx bits_dl_Shape_IndexedFaceSet_002_mesh_tri_0[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_0[4];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_0[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_1[101];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_1[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_2[40];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_2[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_3[156];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_3[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_4[268];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_4[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_5[418];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_5[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_6[559];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_6[];
+extern Vtx bits_dl_Shape_IndexedFaceSet_042_mesh_vtx_7[30];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh_tri_7[];
+
+extern Gfx bits_dl_Shape_IndexedFaceSet_001_mesh[];
+extern Gfx bits_dl_Shape_IndexedFaceSet_002_mesh[];
+extern Gfx bits_dl_Shape_IndexedFaceSet_042_mesh[];
+extern Gfx bits_dl_material_revert_render_settings[];
+
