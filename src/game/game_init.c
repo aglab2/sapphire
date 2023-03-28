@@ -627,6 +627,13 @@ u32 last10Timers[4][10] = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 
+
+#include "level_update.h"
+
+extern s16 sCurrPlayMode;
+extern struct WarpDest sWarpDest;
+extern u16 gRandomSeed16;
+
 u32 avg10U32s(u32 *start) {
     return (start[0] + start[1] + start[2] + start[3] + start[4] + start[5] + start[6] + start[7]
             + start[8] + start[9])
@@ -681,6 +688,17 @@ void thread5_game_loop(UNUSED void *arg) {
         {
             Hacktice_onFrame();
         }
+
+#if 0
+        if (gPlayer1Controller->buttonPressed & L_TRIG)
+        {
+            sCurrPlayMode = 4;
+            sWarpDest.type = 1;
+            sWarpDest.levelNum = 1;
+            gRandomSeed16 = 0;
+        }
+#endif
+
         addr = level_script_execute(addr);
         display_and_vsync();
 
