@@ -19,6 +19,10 @@ Config sConfig = {
     .timerShow = true,
     .warpWheel = true,
     .name = "PRACTICE",
+
+    .lAction = Config_ButtonAction_LEVEL_RESET,
+    .lRAction = Config_ButtonAction_ACT_SELECT,
+    .dpadUpAction = Config_ButtonAction_LOAD_STATE,
 };
 
 typedef struct ConfigDescriptor
@@ -89,8 +93,8 @@ static const ConfigDescriptor sGeneralDescriptors[] =
     
     { &sConfig.deathAction,   uDEATH_ACTION,  VALUE_NAMES(deathActionNames) },
 
-    { &Config_gMusicNumber,    uMUSIC_NUMBER,  lMusicNumbers, 64 },
     { &sConfig.stateSaveStyle, uSSAVESTYLE,   VALUE_NAMES(stateSaveNames) },
+    { &Config_gMusicNumber,    uMUSIC_NUMBER,  lMusicNumbers, 64 },
 
     { &sConfig.warpWheel,     uWARP_WHEEL, VALUE_NAMES(onOffValueNames) },
 };
