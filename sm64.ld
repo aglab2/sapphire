@@ -154,6 +154,8 @@ SECTIONS
       BUILD_DIR/src/audio/external.o(.text);
       BUILD_DIR/src/audio/port_eu.o(.text);
 
+      lib/gcclib/libgcc.a:_lshrdi3.o(.text);
+
 #if defined(VERSION_EU) || defined(VERSION_SH)
       BUILD_DIR/libultra.a:string.o(.text);
       BUILD_DIR/libultra.a:_Printf.o(.text);

@@ -173,7 +173,7 @@ endif
 
 # Use a default opt flag for gcc
 ifeq ($(COMPILER),gcc)
-  OPT_FLAGS := -O2
+  OPT_FLAGS := -Oz
 endif
 
 # File dependencies and variables for specific files
@@ -235,8 +235,8 @@ SEG_FILES := $(SEGMENT_ELF_FILES) $(ACTOR_ELF_FILES) $(LEVEL_ELF_FILES)
 ##################### Compiler Options #######################
 IRIX_ROOT := tools/ido5.3_compiler
 
-ifeq ($(shell type mips-linux-gnu-ld >/dev/null 2>/dev/null; echo $$?), 0)
-  CROSS := mips-linux-gnu-
+ifeq ($(shell type mips-n64-ld >/dev/null 2>/dev/null; echo $$?), 0)
+  CROSS := mips-n64-
 else ifeq ($(shell type mips64-linux-gnu-ld >/dev/null 2>/dev/null; echo $$?), 0)
   CROSS := mips64-linux-gnu-
 else
