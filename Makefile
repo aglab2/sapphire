@@ -173,7 +173,7 @@ endif
 
 # Use a default opt flag for gcc
 ifeq ($(COMPILER),gcc)
-  OPT_FLAGS := -Os
+  OPT_FLAGS := -Os -freorder-blocks-algorithm=simple -fno-jump-tables -falign-functions=32 -fno-inline -finline-limit=0
 endif
 
 # File dependencies and variables for specific files
