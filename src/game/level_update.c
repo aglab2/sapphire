@@ -1331,8 +1331,9 @@ s32 lvl_set_current_level(UNUSED s16 arg0, s32 levelNum) {
  */
 extern struct SaveBuffer gSaveBuffer;
 static char sGameTime[] = "Game Time  0 00 00.00";
-s32 lvl_play_the_end_screen_sound(UNUSED s16 initOrUpdate, UNUSED s32 levelNum) {
-    play_sound(SOUND_MENU_THANK_YOU_PLAYING_MY_GAME, gDefaultSoundArgs);
+
+void calc_igt()
+{
     gSaveFileModified = 1;
     save_file_do_save(gCurrSaveFileNum - 1);
     s32 timeLeft = gSaveBuffer.files[gCurrSaveFileNum - 1][0].timer;
@@ -1358,4 +1359,8 @@ s32 lvl_show_time(UNUSED s16 initOrUpdate, UNUSED s32 levelNum)
 {
     print_text_centered(160, 220, sGameTime);
     return TRUE;
+}
+
+s32 lvl_play_the_end_screen_sound(UNUSED s16 initOrUpdate, UNUSED s32 levelNum) {
+    play_sound(SOUND_MENU_THANK_YOU_PLAYING_MY_GAME, gDefaultSoundArgs);
 }

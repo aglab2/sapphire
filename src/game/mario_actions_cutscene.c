@@ -1949,7 +1949,9 @@ static s32 jumbo_star_cutscene_flying(struct MarioState *m) {
 
 enum { JUMBO_STAR_CUTSCENE_FALLING, JUMBO_STAR_CUTSCENE_TAKING_OFF, JUMBO_STAR_CUTSCENE_FLYING };
 
+extern s32 lvl_show_time(UNUSED s16 initOrUpdate, UNUSED s32 levelNum);
 static s32 act_jumbo_star_cutscene(struct MarioState *m) {
+    lvl_show_time(0, 0);
     switch (m->actionArg) {
         case JUMBO_STAR_CUTSCENE_FALLING:
             jumbo_star_cutscene_falling(m);

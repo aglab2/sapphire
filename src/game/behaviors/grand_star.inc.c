@@ -19,6 +19,7 @@ void grand_star_zero_velocity(void) {
     o->oForwardVel = 0.0f;
 }
 
+extern void calc_igt();
 void bhv_grand_star_loop(void) {
     UNUSED s32 unused;
     Vec3f sp28;
@@ -60,6 +61,7 @@ void bhv_grand_star_loop(void) {
     } else {
         cur_obj_become_tangible();
         if (o->oInteractStatus & INT_STATUS_INTERACTED) {
+            calc_igt();
             obj_mark_for_deletion(o);
             o->oInteractStatus = 0;
         }
