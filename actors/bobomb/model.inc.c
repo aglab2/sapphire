@@ -279,6 +279,8 @@ static const Vtx bobomb_seg8_vertex_08023190[] = {
 
 // 0x08023270 - 0x08023378
 const Gfx bobomb_seg8_dl_08023270[] = {
+    gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
     gsSPLight(&bobomb_seg8_lights_08022DE8.l, 1),
     gsSPLight(&bobomb_seg8_lights_08022DE8.a, 2),
     gsSPVertex(bobomb_seg8_vertex_08022E30, 16, 0),
@@ -302,6 +304,8 @@ const Gfx bobomb_seg8_dl_08023270[] = {
 
 // 0x08023378 - 0x08023480
 const Gfx bobomb_seg8_dl_08023378[] = {
+    gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
     gsSPLight(&bobomb_seg8_lights_08022DE8.l, 1),
     gsSPLight(&bobomb_seg8_lights_08022DE8.a, 2),
     gsSPVertex(bobomb_seg8_vertex_08022F70, 16, 0),
@@ -325,6 +329,8 @@ const Gfx bobomb_seg8_dl_08023378[] = {
 
 // 0x08023480 - 0x08023528
 const Gfx bobomb_seg8_dl_08023480[] = {
+    gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
     gsSPLight(&bobomb_seg8_lights_08022E00.l, 1),
     gsSPLight(&bobomb_seg8_lights_08022E00.a, 2),
     gsSPVertex(bobomb_seg8_vertex_080230B0, 14, 0),
