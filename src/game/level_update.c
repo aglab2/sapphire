@@ -959,7 +959,7 @@ void basic_update(UNUSED s16 *arg) {
 u64 deltaTime = 0;
 u64 newTime = 0;
 u64 oldTime = 0;
-s8 doneskipped;
+s8 doneskipped = -1;
 s32 play_mode_normal(void) {
     int i = 0;
     if (gCurrDemoInput != NULL) {
@@ -975,6 +975,7 @@ s32 play_mode_normal(void) {
 
     warp_area();
     check_instant_warp();
+#if 0
     doneskipped = -1;
     newTime = osGetTime();
     deltaTime += newTime - oldTime;
@@ -993,6 +994,12 @@ s32 play_mode_normal(void) {
         }
         doneskipped++;
     }
+#else
+    area_update_objects();
+    if (gCurrentArea != NULL) {
+        update_camera(gCurrentArea->camera);
+    }
+#endif
     update_hud_values();
 
     initiate_delayed_warp();

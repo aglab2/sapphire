@@ -173,7 +173,7 @@ endif
 
 # Use a default opt flag for gcc
 ifeq ($(COMPILER),gcc)
-  OPT_FLAGS := -Oz
+  OPT_FLAGS := -Os
 endif
 
 # File dependencies and variables for specific files

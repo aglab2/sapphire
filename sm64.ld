@@ -75,11 +75,6 @@ SECTIONS
    }
    END_SEG(boot)
 
-   . = 0x80000400;
-   BEGIN_NOLOAD(zbuffer) {
-      BUILD_DIR/src/buffers/zbuffer.o(.bss*);
-   }
-
    /* lib/src/__osDevMgrMain.c and lib/src/osCreateViManager.c contain infinite
     * loops compiled without -g, which cause the return statements and the .o
     * files themselves to be aligned to 32-byte boundaries. But the linker
@@ -711,6 +706,11 @@ SECTIONS
       BUILD_DIR/src/hacktice*.o(.*bss*);
    }
    END_NOLOAD(engine)
+   
+   . = 0x80300000;
+   BEGIN_NOLOAD(zbuffer) {
+      BUILD_DIR/src/buffers/zbuffer.o(.bss*);
+   }
 
    ASSERT((. <= SEG_FRAMEBUFFERS), "Error: engine segment extended into framebuffers.")
 
@@ -720,10 +720,6 @@ SECTIONS
       BUILD_DIR/src/buffers/framebuffers.o(.bss*);
    }
    END_NOLOAD(framebuffers)
-
-   __expansionRamStart = 0x80400000;
-   ASSERT((. <= __expansionRamStart), "Error: RDRAM expanded into Expansion RAM, despite Expansion RAM not being defined.")
-
 
    BEGIN_SEG(entry, 0x10000000)
    {
