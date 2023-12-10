@@ -3132,7 +3132,7 @@ void update_camera(struct Camera *c) {
                     mode_8_directions_camera(c);
                     break;
                 case CAMERA_MODE_BOSS_FIGHT:
-                    mode_8_directions_camera(c);
+                    mode_boss_fight_camera(c);
                     break;
 
                 case CAMERA_MODE_PARALLEL_TRACKING:
