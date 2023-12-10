@@ -720,10 +720,12 @@ static void level_cmd_38(void) {
     sCurrentCmd = CMD_NEXT;
 }
 
+extern s32 gTimerOffset;
 static void level_cmd_get_or_set_var(void) {
     if (CMD_GET(u8, 2) == 0) {
         switch (CMD_GET(u8, 3)) {
             case 0:
+                gTimerOffset = gGlobalTimer;
                 gCurrSaveFileNum = sRegister;
                 break;
             case 1:

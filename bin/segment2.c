@@ -1800,6 +1800,14 @@ ALIGNED8 static const u8 texture_hud_char_arrow_down[] = {
 #include "textures/segment2/segment2.081D0.rgba16.inc.c"
 };
 
+ALIGNED8 static const u8 texture_hud_char_colon[] = {
+#include "textures/segment2/segment2.colon.rgba16.inc.c"
+};
+
+ALIGNED8 static const u8 texture_hud_char_dot[] = {
+#include "textures/segment2/segment2.decimal_point.rgba16.inc.c"
+};
+
 // Main HUD print table 0x02008250-0x02008337
 const u8 *const main_hud_lut[] = {
 #ifdef VERSION_EU
@@ -1831,7 +1839,7 @@ const u8 *const main_hud_lut[] = {
                   0x0,               0x0,               0x0,               0x0,
                   0x0,               0x0,               0x0,               0x0,
                   0x0,               0x0,               0x0,               0x0,
-                  0x0,               0x0, texture_hud_char_multiply, texture_hud_char_coin,
+                  texture_hud_char_dot,               texture_hud_char_colon, texture_hud_char_multiply, texture_hud_char_coin,
     texture_hud_char_mario_head, texture_hud_char_star,               0x0,               0x0,
     texture_hud_char_apostrophe, texture_hud_char_double_quote,
 #else

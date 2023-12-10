@@ -339,11 +339,15 @@ s8 char_to_glyph_index(char c) {
     }
 
     if (c == '.') {
-        return GLYPH_PERIOD; // large shaded dot, JP only
+        return GLYPH_MULTIPLY - 2; // large shaded dot, JP only
     }
 
     if (c == '/') {
         return GLYPH_BETA_KEY; // beta key, JP only. Reused for Ü in EU.
+    }
+
+    if (c == ':') {
+        return GLYPH_MULTIPLY - 1;
     }
 
     return GLYPH_SPACE;

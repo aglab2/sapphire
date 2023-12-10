@@ -16,6 +16,7 @@
 #include "make_const_nonconst.h"
 #include "levels/ending/header.h"
 
+extern s32 lvl_show_time(UNUSED s16 initOrUpdate, UNUSED s32 levelNum);
 const LevelScript level_ending_entry[] = {
     /*0*/ INIT_LEVEL(),
     /*1*/ LOAD_MIO0(/*seg*/ 0x07, _ending_segment_7SegmentRomStart, _ending_segment_7SegmentRomEnd),
@@ -33,5 +34,6 @@ const LevelScript level_ending_entry[] = {
     /*15*/ CALL(/*arg*/ 0, /*func*/ lvl_play_the_end_screen_sound),
     // L1:
     /*17*/ SLEEP(/*frames*/ 1),
+          CALL(/*arg*/ 0, /*func*/ lvl_show_time),
     /*18*/ JUMP(level_ending_entry + 17),
 };
