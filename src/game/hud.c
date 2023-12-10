@@ -118,7 +118,7 @@ void render_dl_power_meter(s16 numHealthWedges) {
         return;
     }
 
-    guTranslate(mtx, (f32) sPowerMeterHUD.x, (f32) sPowerMeterHUD.y, 0);
+    guTranslate(mtx, (f32) 24, (f32) 30, 0);
 
     gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(mtx++),
               G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
@@ -229,33 +229,7 @@ void handle_power_meter_actions(s16 numHealthWedges) {
  * And calls a power meter animation function depending of the value defined.
  */
 void render_hud_power_meter(void) {
-    s16 shownHealthWedges = gHudDisplay.wedges;
-
-    if (sPowerMeterHUD.animation != POWER_METER_HIDING) {
-        handle_power_meter_actions(shownHealthWedges);
-    }
-
-    if (sPowerMeterHUD.animation == POWER_METER_HIDDEN) {
-        return;
-    }
-
-    switch (sPowerMeterHUD.animation) {
-        case POWER_METER_EMPHASIZED:
-            animate_power_meter_emphasized();
-            break;
-        case POWER_METER_DEEMPHASIZING:
-            animate_power_meter_deemphasizing();
-            break;
-        case POWER_METER_HIDING:
-            animate_power_meter_hiding();
-            break;
-        default:
-            break;
-    }
-
-    render_dl_power_meter(shownHealthWedges);
-
-    sPowerMeterVisibleTimer += 1;
+    render_dl_power_meter(gHudDisplay.wedges);
 }
 
 #ifdef VERSION_JP

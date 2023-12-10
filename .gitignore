@@ -52,3 +52,5 @@ build/*
 *.map
 .assets-local.txt
 
+Thumbs.db
+Thumbs.db:encryptable
